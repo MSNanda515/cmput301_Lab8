@@ -43,7 +43,7 @@ public class CustomListTest {
         City newCity = new City("Vancouver", "BC");
         // test for absence of city when it isn't present
         assertFalse(list.hasCity(newCity));
-        list.add(newCity);
+        list.addCity(newCity);
         // test for presence of city when it is present
         assertTrue(list.hasCity(newCity));
     }
