@@ -12,11 +12,19 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+/**
+ * Custom list Array adapter
+ */
 public class CustomList extends ArrayAdapter<City> {
 
     private ArrayList<City> cities;
     private Context context;
 
+    /**
+     * Constructor
+     * @param context the context
+     * @param cities the list of cities
+     */
     public CustomList(Context context, ArrayList<City> cities) {
         super(context, 0, cities);
         this.cities = cities;
@@ -45,10 +53,18 @@ public class CustomList extends ArrayAdapter<City> {
 
     }
 
+    /**
+     * Gets the count
+     * @return
+     */
     public int getCount(){
         return cities.size();
     }
 
+    /**
+     * Adds cities
+     * @param city
+     */
     public void addCity(City city){
         cities.add(city);
     }
