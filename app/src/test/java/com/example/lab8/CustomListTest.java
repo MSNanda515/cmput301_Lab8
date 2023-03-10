@@ -55,7 +55,7 @@ public class CustomListTest {
             list.delete(newCity);
         });
 
-        list.add(newCity);
+        list.addCity(newCity);
         list.delete(newCity);
         // delete the city; shouldn't throw an error
         // check if city has indeed been removed
