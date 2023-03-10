@@ -61,4 +61,15 @@ public class CustomListTest {
         // check if city has indeed been removed
         assertFalse(list.hasCity(newCity));
     }
+
+    @Test
+    void testCountCities() {
+        City newCity = new City("Vancouver", "BC");
+        list = MockCityList();
+        // list should have 1 object before adding the new object
+        assertEquals(0, list.countCities());
+        list.addCity(newCity);
+        // list should have 2 objects after adding the new object
+        assertEquals(1, list.countCities());
+    }
 }
