@@ -3,11 +3,9 @@ package com.example.lab8;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
-//import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -46,5 +44,21 @@ public class CustomListTest {
         list.addCity(newCity);
         // test for presence of city when it is present
         assertTrue(list.hasCity(newCity));
+    }
+
+    @Test
+    void testDelete() {
+        list = MockCityList();
+        City newCity = new City("Vancouver", "BC");
+        // city not present; expect error
+        assertThrows(IllegalArgumentException.class, () -> {
+            list.delete(newCity);
+        });
+
+        list.add(newCity);
+        list.delete(newCity);
+        // delete the city; shouldn't throw an error
+        // check if city has indeed been removed
+        assertFalse(list.hasCity(newCity));
     }
 }
